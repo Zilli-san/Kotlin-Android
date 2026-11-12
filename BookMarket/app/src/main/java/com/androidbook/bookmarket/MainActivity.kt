@@ -18,28 +18,11 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        //employee
-        var myEmp = Employee(202201, "홍길순")
-
-        //상속
-        val myAnimal = Animal()
-        val myDog = Dog()
-
-        Log.d("코틀린 : 객체 지향 프로그래밍 ", "Animal 클래스: ${myAnimal.sound()}")
-        Log.d("코틀린 : 객체 지향 프로그래밍 ", "Dog 클래스: ${myDog.sound()}")
+        val number = mutableListOf(1,2,3).also {
+            println("리소트의 크기: ${it.size}")
+            it.add(4)
+        }
+        println(number) //[1,2,3,4]
     }
 }
 
-//상속할 클래스에 open 추가
-open class Animal {
-    open fun sound(): String {
-        return "동물이 소리를 낸다"
-    }
-}
-
-//상속받기
-class Dog : Animal() {
-    override fun sound(): String {
-        return "멍멍"
-    }
-}
