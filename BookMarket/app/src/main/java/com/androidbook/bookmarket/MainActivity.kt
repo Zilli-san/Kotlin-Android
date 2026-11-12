@@ -18,15 +18,11 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        for (i in 5 downTo 1) {
-            Log.d("코틀린 : for 반복문 ", "반복 변수 : " + i)
-        }
-
-        var numbers = arrayOf(1,2,3,4,5)
-        for (i in numbers){
-            if(i % 2 == 1){
-                Log.d("코틀린 : for 반복문 ", "반복 변수 : " + i)
-            }
-        }
+        // 객체
+        var myObj = Member() //객체 생성
+        myObj.name = "홍길동" //name 속성에 접근, 값 할당
+        myObj.age = 20
+        myObj.gender = 'M'
+        myObj.printMemberInfo()  //member function 호출
     }
 }
