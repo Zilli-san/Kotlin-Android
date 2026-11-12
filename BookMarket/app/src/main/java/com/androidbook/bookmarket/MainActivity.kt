@@ -18,11 +18,28 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // 객체
-        var myObj = Member() //객체 생성
-        myObj.name = "홍길동" //name 속성에 접근, 값 할당
-        myObj.age = 20
-        myObj.gender = 'M'
-        myObj.printMemberInfo()  //member function 호출
+        //employee
+        var myEmp = Employee(202201, "홍길순")
+
+        //상속
+        val myAnimal = Animal()
+        val myDog = Dog()
+
+        Log.d("코틀린 : 객체 지향 프로그래밍 ", "Animal 클래스: ${myAnimal.sound()}")
+        Log.d("코틀린 : 객체 지향 프로그래밍 ", "Dog 클래스: ${myDog.sound()}")
+    }
+}
+
+//상속할 클래스에 open 추가
+open class Animal {
+    open fun sound(): String {
+        return "동물이 소리를 낸다"
+    }
+}
+
+//상속받기
+class Dog : Animal() {
+    override fun sound(): String {
+        return "멍멍"
     }
 }
