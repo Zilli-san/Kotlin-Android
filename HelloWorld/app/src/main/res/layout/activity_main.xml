@@ -5,42 +5,65 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFF6F6"
     tools:context=".MainActivity">
 
+    <!-- 위쪽 이미지 -->
     <ImageView
-        android:id="@+id/imageView_id"
+        android:id="@+id/imageView_top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="center"
-        android:contentDescription="고양이 이미지"
-        app:srcCompat="@drawable/cat"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="0dp"
+        android:scaleType="fitCenter"
+        android:contentDescription="책 이미지"
+        app:srcCompat="@drawable/start_top"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/button_id" />
+        app:layout_constraintBottom_toTopOf="@id/textView_welcome"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-        android:id="@+id/button_id"
+    <!-- 환영 문구 -->
+    <TextView
+        android:id="@+id/textView_welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onButtonClick"
-        android:text="이미지 변경하기"
+        android:layout_marginBottom="8dp"
+        android:text="도서 쇼핑몰에 오신 걸 환영합니다!"
+        android:textSize="14sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.42"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView_id"
-        app:layout_constraintBottom_toTopOf="@id/imageButton" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="match_parent"
+    <!-- 시작하기 버튼 -->
+    <Button
+        android:id="@+id/button_start"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:focusableInTouchMode="true"
-        android:contentDescription="시작 버튼"
-        app:srcCompat="@drawable/imagebutton_states"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#4A9C8C"
+        android:onClick="onButtonClick"
+        android:text="시작하기"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/textView_welcome"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_id"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- 아래쪽 이미지 -->
+    <ImageView
+        android:id="@+id/imageView_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="fitCenter"
+        android:contentDescription="책 읽는 사람 이미지"
+        app:srcCompat="@drawable/start_bottom"
+        app:layout_constraintTop_toBottomOf="@id/button_start"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
