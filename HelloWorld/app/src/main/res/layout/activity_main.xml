@@ -7,11 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/button"
+    <TextView
+        android:id="@+id/textView_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="버튼"
+        android:text="Android App with Kotlin\nAndroid App with Kotlin\nAndroid App with Kotlin"
+        android:textColor="#ff0000"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        android:typeface="serif"
+        android:maxLines="2"
+
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
