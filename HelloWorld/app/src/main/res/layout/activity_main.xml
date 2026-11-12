@@ -7,24 +7,40 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/editText_id"
-        android:hint="입력해 주세요"
-        android:inputType="text"
+    <ImageView
+        android:id="@+id/imageView_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:scaleType="center"
+        android:contentDescription="고양이 이미지"
+        app:srcCompat="@drawable/cat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/button_id" />
 
     <Button
         android:id="@+id/button_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onButtonClick"
-        android:text="입력값 보기"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="이미지 변경하기"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView_id"
+        app:layout_constraintBottom_toTopOf="@id/imageButton" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:focusableInTouchMode="true"
+        android:contentDescription="시작 버튼"
+        app:srcCompat="@drawable/imagebutton_states"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_id"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

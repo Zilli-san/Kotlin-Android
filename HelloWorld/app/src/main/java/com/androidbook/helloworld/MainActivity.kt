@@ -2,8 +2,7 @@ package com.androidbook.helloworld
 
 import android.os.Bundle
 import android.view.View
-import android.widget.EditText
-import android.widget.Toast
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -11,7 +10,7 @@ import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var editText : EditText
+    lateinit var imageView: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,11 +22,10 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        editText = findViewById(R.id.editText_id)
+        imageView = findViewById(R.id.imageView_id)
     }
 
-    fun onButtonClick(view : View?) {
-        val str = editText.text.toString()
-        Toast.makeText(applicationContext, str, Toast.LENGTH_SHORT).show()
+    fun onButtonClick(view: View?) {
+        imageView.setImageResource(R.drawable.cat2)
     }
 }
