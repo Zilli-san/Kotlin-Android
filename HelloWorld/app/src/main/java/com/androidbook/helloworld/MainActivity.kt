@@ -1,15 +1,18 @@
 package com.androidbook.helloworld
 
-import android.graphics.Color
 import android.os.Bundle
-import android.widget.Button
+import android.view.View
+import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var editText : EditText
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -20,19 +23,11 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        editText = findViewById(R.id.editText_id)
+    }
 
-        var myLayout: ConstraintLayout = findViewById(R.id.main)
-
-        var myButton = Button(this).apply {
-        layoutParams = ConstraintLayout.LayoutParams(
-            ConstraintLayout.LayoutParams.MATCH_PARENT,
-            ConstraintLayout.LayoutParams.WRAP_CONTENT
-        )
-
-        text = "버튼"
-        setBackgroundColor(Color.rgb(103, 80, 164))
-        setTextColor(Color.WHITE)
-        }
-        myLayout.addView(myButton)
+    fun onButtonClick(view : View?) {
+        val str = editText.text.toString()
+        Toast.makeText(applicationContext, str, Toast.LENGTH_SHORT).show()
     }
 }
