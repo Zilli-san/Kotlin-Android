@@ -18,16 +18,15 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        var numOne = 1
-        var numTwo = 3000000000
-        var myByte: Byte = 1
-        var myInt: Int = 20
-        var myLong = 25 //명시적 long 지정
+        for (i in 5 downTo 1) {
+            Log.d("코틀린 : for 반복문 ", "반복 변수 : " + i)
+        }
 
-        Log.d("코틀린 : 정수 자료형 ","Int : " + numOne)
-        Log.d("코틀린 : 정수 자료형 ", "Long : " +  numTwo)
-        Log.d("코틀린 : 정수 자료형 ", "Byte : " + myByte)
-        Log.d("코틀린 : 정수 자료형 ", "Int : " + myInt)
-        Log.d("코틀린 : 정수 자료형 ", "Long : " + myLong)
+        var numbers = arrayOf(1,2,3,4,5)
+        for (i in numbers){
+            if(i % 2 == 1){
+                Log.d("코틀린 : for 반복문 ", "반복 변수 : " + i)
+            }
+        }
     }
 }
