@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF6F6"
+    android:orientation="vertical"
+    tools:context=".MenuActivity">
+
+    <!-- 상단: Welcome BookMarket -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Welcome"
+                android:textColor="#F57C00"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BookMarket"
+                android:textColor="#F57C00"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:contentDescription="프로필"
+            android:src="@android:drawable/ic_menu_myplaces"
+            app:tint="#26A69A" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 배너 -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="배너"
+                android:scaleType="centerCrop"
+                android:src="@drawable/banner" />
+
+            <!-- Categories 제목 줄 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Categories"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&gt;" />
+            </LinearLayout>
+
+            <!-- 메뉴 버튼 (테이블 레이아웃 2행 x 3열) -->
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
+
+                <TableRow android:layout_marginBottom="16dp">
+
+                    <LinearLayout
+                        android:id="@+id/menu_booklist"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:background="#26A69A"
+                            android:contentDescription="도서목록"
+                            android:padding="16dp"
+                            android:src="@android:drawable/ic_menu_agenda"
+                            app:tint="#FFFFFF" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="도서목록"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/menu_ebook"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:background="#1E88E5"
+                            android:contentDescription="E-Book"
+                            android:padding="16dp"
+                            android:src="@android:drawable/ic_menu_gallery"
+                            app:tint="#FFFFFF" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="E-Book"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/menu_market"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:background="#AB47BC"
+                            android:contentDescription="마켓정보"
+                            android:padding="16dp"
+                            android:src="@android:drawable/ic_menu_compass"
+                            app:tint="#FFFFFF" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="마켓정보"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow>
+
+                    <LinearLayout
+                        android:id="@+id/menu_mypage"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:background="#7E57C2"
+                            android:contentDescription="나의페이지"
+                            android:padding="16dp"
+                            android:src="@android:drawable/ic_menu_myplaces"
+                            app:tint="#FFFFFF" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="나의페이지"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/menu_cart"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:background="#EF5350"
+                            android:contentDescription="장바구니"
+                            android:padding="16dp"
+                            android:src="@android:drawable/ic_menu_add"
+                            app:tint="#FFFFFF" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="장바구니"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/menu_service"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:background="#FFA726"
+                            android:contentDescription="고객센터"
+                            android:padding="16dp"
+                            android:src="@android:drawable/ic_menu_call"
+                            app:tint="#FFFFFF" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="고객센터"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- 하단 메뉴 바 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#FFFFFF"
+        android:orientation="horizontal">
+
+        <ImageButton android:layout_width="0dp" android:layout_height="match_parent"
+            android:layout_weight="1" android:background="@android:color/transparent"
+            android:contentDescription="홈" android:src="@android:drawable/ic_menu_agenda" />
+        <ImageButton android:layout_width="0dp" android:layout_height="match_parent"
+            android:layout_weight="1" android:background="@android:color/transparent"
+            android:contentDescription="검색" android:src="@android:drawable/ic_menu_search" />
+        <ImageButton android:layout_width="0dp" android:layout_height="match_parent"
+            android:layout_weight="1" android:background="@android:color/transparent"
+            android:contentDescription="E-Book" android:src="@android:drawable/ic_menu_gallery" />
+        <ImageButton android:layout_width="0dp" android:layout_height="match_parent"
+            android:layout_weight="1" android:background="@android:color/transparent"
+            android:contentDescription="마이페이지" android:src="@android:drawable/ic_menu_myplaces" />
+        <ImageButton android:layout_width="0dp" android:layout_height="match_parent"
+            android:layout_weight="1" android:background="@android:color/transparent"
+            android:contentDescription="고객센터" android:src="@android:drawable/ic_menu_info_details" />
+    </LinearLayout>
+</LinearLayout>
