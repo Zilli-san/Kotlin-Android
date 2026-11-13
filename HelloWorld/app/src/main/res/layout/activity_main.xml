@@ -1,119 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFF6F6"
+    android:orientation="vertical"
     android:padding="16dp"
     tools:context=".MainActivity">
 
-    <!-- 제목 -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="TableLayout 실습"
+        android:text="IntentFilter 실습"
         android:textColor="#7CB342"
         android:textSize="18sp"
         android:textStyle="bold|italic" />
 
-    <!-- 1행: 거북이 2마리 -->
-    <TableRow
-        android:id="@+id/tableRow1"
+    <!-- 받는 사람 -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:layout_marginBottom="12dp">
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:text="받는 사람" />
 
         <EditText
-            android:id="@+id/editText1"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="#A1887F"
-            android:gravity="center"
-            android:inputType="number"
-            android:maxLength="2"
-            android:textColor="#FFFFFF" />
+            android:id="@+id/editText_to"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="이메일 주소"
+            android:inputType="textEmailAddress" />
+    </LinearLayout>
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="8dp"
-            android:contentDescription="거북이"
-            android:src="@drawable/turtle" />
-
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:contentDescription="거북이"
-            android:src="@drawable/turtle" />
-    </TableRow>
-
-    <!-- 2행: 물고기 6마리 -->
-    <TableRow
-        android:id="@+id/tableRow2"
+    <!-- 제목 -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:layout_marginBottom="16dp">
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:text="제목" />
 
         <EditText
-            android:id="@+id/editText2"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="#A1887F"
-            android:gravity="center"
-            android:inputType="number"
-            android:maxLength="2"
-            android:textColor="#FFFFFF" />
+            android:id="@+id/editText_subject"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="제목"
+            android:inputType="text" />
+    </LinearLayout>
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="8dp"
-            android:contentDescription="물고기"
-            android:src="@drawable/fish" />
+    <!-- 내용 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="내용" />
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:contentDescription="물고기"
-            android:src="@drawable/fish" />
+    <EditText
+        android:id="@+id/editText_body"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:gravity="top|start"
+        android:hint="내용을 입력하세요"
+        android:inputType="textMultiLine" />
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:contentDescription="물고기"
-            android:src="@drawable/fish" />
-
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:contentDescription="물고기"
-            android:src="@drawable/fish" />
-
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:contentDescription="물고기"
-            android:src="@drawable/fish" />
-
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:contentDescription="물고기"
-            android:src="@drawable/fish" />
-    </TableRow>
-
-    <!-- 결과보기 버튼 -->
     <Button
-        android:id="@+id/button_result"
+        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:backgroundTint="#26A69A"
-        android:onClick="onButtonClick"
-        android:text="결과보기"
+        android:text="메일보내기"
         android:textColor="#FFFFFF" />
 
-</TableLayout>
+</LinearLayout>

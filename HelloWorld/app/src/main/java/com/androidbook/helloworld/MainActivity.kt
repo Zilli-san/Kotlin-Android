@@ -1,18 +1,15 @@
 package com.androidbook.helloworld
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.View
+import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
-
-    lateinit var editText1: EditText
-    lateinit var editText2: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,18 +21,20 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        editText1 = findViewById(R.id.editText1)
-        editText2 = findViewById(R.id.editText2)
-    }
+        val editTo: EditText = findViewById(R.id.editText_to)
+        val editSubject: EditText = findViewById(R.id.editText_subject)
+        val editBody: EditText = findViewById(R.id.editText_body)
+        val button: Button = findViewById(R.id.button)
 
-    fun onButtonClick(view: View?) {
-        val count1 = editText1.text.toString().toIntOrNull()
-        val count2 = editText2.text.toString().toIntOrNull()
-
-        if (count1 == 2 && count2 == 6) {
-            Toast.makeText(applicationContext, "맞았습니다", Toast.LENGTH_SHORT).show()
-        } else {
-            Toast.makeText(applicationContext, "틀렸습니다", Toast.LENGTH_SHORT).show()
+        button.setOnClickListener {
+            // 암시적 인텐트: "텍스트를 보내는(ACTION_SEND)" 작업을 할 수 있는 앱을 찾음
+            val intent = Intent(Intent.ACTION_SEND).apply {
+                type = "text/plain"                                            // <data mimeType>
+                putExtra(Intent.EXTRA_EMAIL, arrayOf(editTo.text.toString()))  // 받는 사람 (배열!)
+                putExtra(Intent.EXTRA_SUBJECT, editSubject.text.toString())    // 제목
+                putExtra(Intent.EXTRA_TEXT, editBody.text.toString())          // 내용
+            }
+            startActivity(Intent.createChooser(intent, "메일 앱 선택"))
         }
     }
 }
