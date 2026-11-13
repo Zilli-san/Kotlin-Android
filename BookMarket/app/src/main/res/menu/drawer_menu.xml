@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_login" android:icon="@android:drawable/ic_menu_myplaces" android:title="로그인" />
+    <item android:id="@+id/nav_settings" android:icon="@android:drawable/ic_menu_preferences" android:title="환경설정" />
+    <item android:id="@+id/nav_myinfo" android:icon="@android:drawable/ic_menu_info_details" android:title="나의정보" />
+</menu>

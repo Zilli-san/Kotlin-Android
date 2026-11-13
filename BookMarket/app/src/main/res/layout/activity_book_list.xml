@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
@@ -7,6 +8,16 @@
     android:background="#FFF6F6"
     android:orientation="vertical"
     tools:context=".BookListActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:background="#26A69A"
+        android:theme="@style/ThemeOverlay.Material3.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.Material3.Light"
+        app:titleTextColor="#FFFFFF" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -18,7 +29,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- 배너 -->
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
@@ -26,7 +36,6 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/banner" />
 
-            <!-- BookList 제목 줄 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -48,7 +57,6 @@
                     android:textSize="18sp" />
             </LinearLayout>
 
-            <!-- 도서 목록 (2열) -->
             <GridLayout
                 android:id="@+id/bookGrid"
                 android:layout_width="match_parent"
@@ -59,51 +67,25 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- 하단 메뉴 바 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:background="#FFFFFF"
         android:orientation="horizontal">
-
-        <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:contentDescription="홈"
+        <ImageButton android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+            android:background="@android:color/transparent" android:contentDescription="홈"
             android:src="@android:drawable/ic_menu_agenda" />
-
-        <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:contentDescription="검색"
+        <ImageButton android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+            android:background="@android:color/transparent" android:contentDescription="검색"
             android:src="@android:drawable/ic_menu_search" />
-
-        <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:contentDescription="E-Book"
+        <ImageButton android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+            android:background="@android:color/transparent" android:contentDescription="E-Book"
             android:src="@android:drawable/ic_menu_gallery" />
-
-        <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:contentDescription="마이페이지"
+        <ImageButton android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+            android:background="@android:color/transparent" android:contentDescription="마이페이지"
             android:src="@android:drawable/ic_menu_myplaces" />
-
-        <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:contentDescription="고객센터"
+        <ImageButton android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+            android:background="@android:color/transparent" android:contentDescription="고객센터"
             android:src="@android:drawable/ic_menu_info_details" />
     </LinearLayout>
 </LinearLayout>
