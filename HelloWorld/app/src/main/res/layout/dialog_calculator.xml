@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/calc_bg"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- 계산기 화면 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/display_bg"
+        android:gravity="end"
+        android:minHeight="96dp"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/text_expression"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textColor="#1B3A2A"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/text_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="0"
+            android:textColor="#1B3A2A"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- 키패드 (4열) -->
+    <GridLayout
+        android:id="@+id/keypad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:columnCount="4">
+
+        <!-- 1행 -->
+        <Button android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1"
+            android:layout_margin="2dp" android:backgroundTint="#A8A8A8" android:textColor="#222222"
+            android:textSize="18sp" android:text="AC" />
+        <Button android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1"
+            android:layout_margin="2dp" android:backgroundTint="#A8A8A8" android:textColor="#222222"
+            android:textSize="18sp" android:text="C" />
+        <Button android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1"
+            android:layout_margin="2dp" android:backgroundTint="#A8A8A8" android:textColor="#222222"
+            android:textSize="20sp" android:text="*" />
+        <Button android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1"
+            android:layout_margin="2dp" android:backgroundTint="#A8A8A8" android:textColor="#222222"
+            android:textSize="20sp" android:text="/" />
+
+        <!-- 2행 -->
+        <Button android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1"
+            android:layout_margin="2dp" android:backgroundTint="#E6E6E6" android:textColor="#222222"
+            android:textSize="20sp" android:text="7" />
+        <Button android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1"
+            android:layout_margin="2dp" android:backgroundTint="#E6E6E6" android:textColor="#222222"
+            android:textSize="20sp" android:text="8" />
+        <Button android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1"
+            android:layout_margin="2dp" android:backgroundTint="#E6E6E6" android:textColor="#222222"
+            android:textSize="20sp" android:text="9" />
+        <Button android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1"
+            android:layout_margin="2dp" android:backgroundTint="#A8A8A8" android:textColor="#222222"
+            android:textSize="20sp" android:text="-" />
+
+        <!-- 3행 -->
+        <Button android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1"
+            android:layout_margin="2dp" android:backgroundTint="#E6E6E6" android:textColor="#222222"
+            android:textSize="20sp" android:text="4" />
+        <Button android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1"
+            android:layout_margin="2dp" android:backgroundTint="#E6E6E6" android:textColor="#222222"
+            android:textSize="20sp" android:text="5" />
+        <Button android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1"
+            android:layout_margin="2dp" android:backgroundTint="#E6E6E6" android:textColor="#222222"
+            android:textSize="20sp" android:text="6" />
+        <Button android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1"
+            android:layout_margin="2dp" android:backgroundTint="#A8A8A8" android:textColor="#222222"
+            android:textSize="20sp" android:text="+" />
+
+        <!-- 4행 -->
+        <Button android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1"
+            android:layout_margin="2dp" android:backgroundTint="#E6E6E6" android:textColor="#222222"
+            android:textSize="20sp" android:text="1" />
+        <Button android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1"
+            android:layout_margin="2dp" android:backgroundTint="#E6E6E6" android:textColor="#222222"
+            android:textSize="20sp" android:text="2" />
+        <Button android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1"
+            android:layout_margin="2dp" android:backgroundTint="#E6E6E6" android:textColor="#222222"
+            android:textSize="20sp" android:text="3" />
+
+        <!-- = 버튼: 2행 차지 -->
+        <Button android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1"
+            android:layout_row="3" android:layout_column="3" android:layout_rowSpan="2"
+            android:layout_gravity="fill" android:layout_margin="2dp"
+            android:backgroundTint="#F26A1B" android:textColor="#FFFFFF"
+            android:textSize="22sp" android:text="=" />
+
+        <!-- 5행 -->
+        <Button android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1"
+            android:layout_row="4" android:layout_column="0" android:layout_margin="2dp"
+            android:backgroundTint="#A8A8A8" android:textColor="#222222"
+            android:textSize="20sp" android:text="←" />
+        <Button android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1"
+            android:layout_row="4" android:layout_column="1" android:layout_margin="2dp"
+            android:backgroundTint="#E6E6E6" android:textColor="#222222"
+            android:textSize="20sp" android:text="0" />
+        <Button android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1"
+            android:layout_row="4" android:layout_column="2" android:layout_margin="2dp"
+            android:backgroundTint="#A8A8A8" android:textColor="#222222"
+            android:textSize="20sp" android:text="." />
+    </GridLayout>
+
+    <!-- 닫기 -->
+    <Button
+        android:id="@+id/close"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#E0457B"
+        android:text="닫기"
+        android:textColor="#FFFFFF" />
+</LinearLayout>

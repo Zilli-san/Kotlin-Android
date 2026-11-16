@@ -13,75 +13,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="IntentFilter 실습"
+        android:text="CustomDialog 실습"
         android:textColor="#7CB342"
         android:textSize="18sp"
         android:textStyle="bold|italic" />
-
-    <!-- 받는 사람 -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="64dp"
-            android:layout_height="wrap_content"
-            android:text="받는 사람" />
-
-        <EditText
-            android:id="@+id/editText_to"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="이메일 주소"
-            android:inputType="textEmailAddress" />
-    </LinearLayout>
-
-    <!-- 제목 -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="64dp"
-            android:layout_height="wrap_content"
-            android:text="제목" />
-
-        <EditText
-            android:id="@+id/editText_subject"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="제목"
-            android:inputType="text" />
-    </LinearLayout>
-
-    <!-- 내용 -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="내용" />
-
-    <EditText
-        android:id="@+id/editText_body"
-        android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:gravity="top|start"
-        android:hint="내용을 입력하세요"
-        android:inputType="textMultiLine" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:backgroundTint="#26A69A"
-        android:text="메일보내기"
+        android:text="계산기 불러오기"
         android:textColor="#FFFFFF" />
-
 </LinearLayout>
