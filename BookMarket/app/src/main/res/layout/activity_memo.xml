@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    tools:context=".MemoActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:background="#26A69A"
+        android:theme="@style/ThemeOverlay.Material3.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.Material3.Light"
+        app:titleTextColor="#FFFFFF" />
+
+    <!-- 등록 / 수정 / 삭제 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <Button android:id="@+id/btn_add" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_marginEnd="4dp"
+            android:backgroundTint="#F28C38" android:text="등록" android:textColor="#FFFFFF" />
+        <Button android:id="@+id/btn_edit" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_marginEnd="4dp"
+            android:backgroundTint="#F28C38" android:text="수정" android:textColor="#FFFFFF" />
+        <Button android:id="@+id/btn_delete" android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#F28C38" android:text="삭제" android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/memo_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/memo_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="메모가 없습니다."
+            android:visibility="gone" />
+    </FrameLayout>
+</LinearLayout>

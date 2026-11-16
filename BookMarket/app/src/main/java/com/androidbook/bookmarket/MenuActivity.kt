@@ -43,14 +43,14 @@ class MenuActivity : AppCompatActivity() {
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
-        // 드로어 메뉴: 로그인 → 로그인 대화상자
+        // 드로어 메뉴
         val navView: NavigationView = findViewById(R.id.nav_view)
         navView.setNavigationItemSelectedListener { item ->
             drawerLayout.closeDrawers()
-            if (item.itemId == R.id.nav_login) {
-                showLoginDialog()
-            } else {
-                Toast.makeText(applicationContext, item.title, Toast.LENGTH_SHORT).show()
+            when (item.itemId) {
+                R.id.nav_login -> showLoginDialog()
+                R.id.nav_myinfo -> startActivity(Intent(this, MyPageActivity::class.java))
+                else -> Toast.makeText(applicationContext, item.title, Toast.LENGTH_SHORT).show()
             }
             true
         }
@@ -65,11 +65,15 @@ class MenuActivity : AppCompatActivity() {
             startActivity(Intent(this, CartActivity::class.java))
         }
 
+        // 나의페이지
+        findViewById<LinearLayout>(R.id.menu_mypage).setOnClickListener {
+            startActivity(Intent(this, MyPageActivity::class.java))
+        }
+
         // 나머지 메뉴
         val menus = mapOf(
             R.id.menu_ebook to "E-Book",
             R.id.menu_market to "마켓정보",
-            R.id.menu_mypage to "나의페이지",
             R.id.menu_service to "고객센터"
         )
         for ((id, name) in menus) {
@@ -79,7 +83,7 @@ class MenuActivity : AppCompatActivity() {
         }
     }
 
-    // 사용자 정의 대화상자 (8장 05절 방식)
+    // 로그인 대화상자 + 아이디 저장 (공유 환경 설정)
     private fun showLoginDialog() {
         val builder = AlertDialog.Builder(this)
         val dialogView = layoutInflater.inflate(R.layout.dialog_login, null)
@@ -90,6 +94,10 @@ class MenuActivity : AppCompatActivity() {
         loginButton.setOnClickListener {
             val id = dialogView.findViewById<EditText>(R.id.login_id).text.toString()
             val pw = dialogView.findViewById<EditText>(R.id.login_pw).text.toString()
+
+            val pref = getSharedPreferences("login", MODE_PRIVATE)
+            pref.edit().putString("id", id).apply()
+
             Toast.makeText(applicationContext, "아이디: $id 비밀번호: $pw", Toast.LENGTH_LONG).show()
             dialog.dismiss()
         }
