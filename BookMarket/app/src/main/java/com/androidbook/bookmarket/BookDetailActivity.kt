@@ -4,16 +4,21 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class BookDetailActivity : AppCompatActivity() {
+
+    private var cartBadge: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +37,6 @@ class BookDetailActivity : AppCompatActivity() {
         supportActionBar?.title = "도서상세정보"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        // 도서목록에서 보낸 데이터 받기
         val index = intent.getIntExtra("bookIndex", 0)
         val book = BookData.books[index]
 
@@ -45,11 +49,43 @@ class BookDetailActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.detail_desc).text = book.description
         findViewById<TextView>(R.id.detail_category).text = book.category
 
-        Toast.makeText(applicationContext, book.title, Toast.LENGTH_SHORT).show()
+        // 장바구니담기 → 기본 대화상자 (8장 02절 방식)
+        findViewById<Button>(R.id.btn_add_cart).setOnClickListener {
+            AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_info)
+                .setTitle("장바구니 담기")
+                .setMessage("도서를 장바구니에 추가하겠습니까?")
+                .setNegativeButton("아니요", null)
+                .setPositiveButton("예") { _, _ ->
+                    CartManager.add(book)
+                    updateBadge()
+                    Toast.makeText(applicationContext, book.title, Toast.LENGTH_SHORT).show()
+                }
+                .show()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        updateBadge()   // 장바구니 화면에서 돌아왔을 때 개수 갱신
+    }
+
+    private fun updateBadge() {
+        val count = CartManager.count()
+        cartBadge?.text = count.toString()
+        cartBadge?.visibility = if (count > 0) View.VISIBLE else View.GONE
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_detail, menu)
+
+        // 장바구니 아이콘(배지 포함) 연결
+        val cartView = menu.findItem(R.id.action_cart).actionView
+        cartBadge = cartView?.findViewById(R.id.cart_badge)
+        cartView?.setOnClickListener {
+            startActivity(Intent(this, CartActivity::class.java))
+        }
+        updateBadge()
         return true
     }
 

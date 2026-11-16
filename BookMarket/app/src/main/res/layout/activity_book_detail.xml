@@ -37,6 +37,16 @@
                 android:contentDescription="도서 표지"
                 android:scaleType="fitCenter" />
 
+            <Button
+                android:id="@+id/btn_add_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="#F28C38"
+                android:text="장바구니담기"
+                android:textColor="#FFFFFF" />
+
             <!-- 도서 정보 (테이블 레이아웃) -->
             <TableLayout
                 android:layout_width="match_parent"

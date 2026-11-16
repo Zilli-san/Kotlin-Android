@@ -2,10 +2,13 @@ package com.androidbook.bookmarket
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
@@ -24,7 +27,6 @@ class MenuActivity : AppCompatActivity() {
         val content: LinearLayout = findViewById(R.id.content)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
 
-        // 툴바는 상태 바 아래로, 본문은 내비게이션 바 위로
         ViewCompat.setOnApplyWindowInsetsListener(drawerLayout) { _, insets ->
             val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             toolbar.setPadding(0, bars.top, 0, 0)
@@ -32,42 +34,64 @@ class MenuActivity : AppCompatActivity() {
             insets
         }
 
-        // 툴바를 앱 바로 설정
         setSupportActionBar(toolbar)
         supportActionBar?.title = "BookMarket"
 
-        // ☰ 아이콘을 누르면 드로어 열기/닫기
         val toggle = ActionBarDrawerToggle(
             this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close
         )
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
-        // 드로어 메뉴 항목 클릭
+        // 드로어 메뉴: 로그인 → 로그인 대화상자
         val navView: NavigationView = findViewById(R.id.nav_view)
         navView.setNavigationItemSelectedListener { item ->
-            Toast.makeText(applicationContext, item.title, Toast.LENGTH_SHORT).show()
             drawerLayout.closeDrawers()
+            if (item.itemId == R.id.nav_login) {
+                showLoginDialog()
+            } else {
+                Toast.makeText(applicationContext, item.title, Toast.LENGTH_SHORT).show()
+            }
             true
         }
 
-        // 도서목록 → 도서목록 화면
+        // 도서목록
         findViewById<LinearLayout>(R.id.menu_booklist).setOnClickListener {
             startActivity(Intent(this, BookListActivity::class.java))
         }
 
-        // 나머지 메뉴: 토스트
+        // 장바구니
+        findViewById<LinearLayout>(R.id.menu_cart).setOnClickListener {
+            startActivity(Intent(this, CartActivity::class.java))
+        }
+
+        // 나머지 메뉴
         val menus = mapOf(
             R.id.menu_ebook to "E-Book",
             R.id.menu_market to "마켓정보",
             R.id.menu_mypage to "나의페이지",
-            R.id.menu_cart to "장바구니",
             R.id.menu_service to "고객센터"
         )
         for ((id, name) in menus) {
             findViewById<LinearLayout>(id).setOnClickListener {
                 Toast.makeText(applicationContext, "$name 메뉴를 클릭했습니다.", Toast.LENGTH_SHORT).show()
             }
+        }
+    }
+
+    // 사용자 정의 대화상자 (8장 05절 방식)
+    private fun showLoginDialog() {
+        val builder = AlertDialog.Builder(this)
+        val dialogView = layoutInflater.inflate(R.layout.dialog_login, null)
+        builder.setView(dialogView)
+        val dialog = builder.show()
+
+        val loginButton: Button = dialogView.findViewById(R.id.login_button)
+        loginButton.setOnClickListener {
+            val id = dialogView.findViewById<EditText>(R.id.login_id).text.toString()
+            val pw = dialogView.findViewById<EditText>(R.id.login_pw).text.toString()
+            Toast.makeText(applicationContext, "아이디: $id 비밀번호: $pw", Toast.LENGTH_LONG).show()
+            dialog.dismiss()
         }
     }
 }

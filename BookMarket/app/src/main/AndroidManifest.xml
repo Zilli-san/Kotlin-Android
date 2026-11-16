@@ -25,6 +25,10 @@
         <activity android:name=".MenuActivity" />
         <activity android:name=".BookListActivity" />
         <activity android:name=".BookDetailActivity" />
+
+        <activity android:name=".CartActivity" />
+        <activity android:name=".ShippingActivity" />
+        <activity android:name=".OrderActivity" />
     </application>
 
 </manifest>
